@@ -327,12 +327,15 @@ margin: 0 auto;
     padding: 0 24px;
 }
 
-.books_he
-
-.book {
+.book{
     width: 25%;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
+
+
 .book_img {
     max-height: 350px;
     transition: all 300ms ease;
