@@ -1,5 +1,27 @@
 function renderBooks() {
-    console.log('readerBooks()')
+    const booksWrapper = document.querySelector('.books')
+    const books = getBooks();
+    console.log(books)
+    booksWrapper.innerHTML =
+    `<div class="books">
+        <div class="book">
+        <figure class="book_img--wrapper">
+            <img class="book_img" src="${books[0].url}" alt="">
+        </figure>
+        <div class="book_title">
+            Crack the Coding Interview
+        </div>
+        div class="book_ratings">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="book_price">
+            <span class="book_price--normal">$59.99</span> Discount : $14.95
+        </div>
+    </div>`
 }
 
 renderBooks();
