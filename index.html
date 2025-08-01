@@ -60,8 +60,8 @@
                         <h2 class="section_title book_header--title">
                             Why choose <span class="purple">Library</span>
                         </h2>
-                        <select id="filter">
-                            <option value="" disa bled selected>Sort</option>
+                        <select id="filter" onchange="filterBooks(event)">
+                            <option value="" disabled selected>Sort</option>
                             <option value="LOW_TO_HIGH">Price, Low to High</option>
                             <option value="HIGH_TO_LOW">Price, High to Low</option>
                             <option value="RATING">Rating</option>

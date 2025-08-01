@@ -1,28 +1,52 @@
-async function renderBooks() {
+async function renderBooks(filter) {
     const booksWrapper = document.querySelector('.books')
     const books = await getBooks();
-    console.log(books)
-    booksWrapper.innerHTML =
-    `<div class="books">
-        <div class="book">
+      
+      if (filter === 'LOW_TO_HIGH') {
+        books.sort((a,b)=> a.originalPrice - b.originalPrice);
+        } 
+        else if (filter === 'HIGH_TO_LOW') {
+          books.sort((a,b)=> b.originalPrice - a.originalPrice);
+        }
+        else if (filter === 'RATING') {
+          books.sort((a,b)=> b.rating - a.rating);
+        }
+
+        let ratingHTML = '';
+        let rating = 3.5;
+        for (let i = 0; i <Math.floor(rating); ++i) {
+          ratingHTML += '<i class="fas fa-star"><i>\n'
+        }
+        if (!Number.isInteger(rating)) {
+          ratingHTML += '<i class="fas fa-star-half-alt"><i>\n'
+        }
+        console.log(ratingHTML)
+    
+        const booksHtml = books
+    .map(book=> {
+       return   `<div class="book">
         <figure class="book_img--wrapper">
-            <img class="book_img" src="${books[0].url}" alt="">
+            <img class="book_img" src="${book.url}" alt="">
         </figure>
         <div class="book_title">
-            ${books[0].title}
+            ${book.title}
         </div>
-        div class="book_ratings">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
+        <div class="book_ratings">
+            ${ratingHTML}
         </div>
         <div class="book_price">
-            <span class="book_price--normal">$${books[0].originalPrice}</span>$${books[0].salePrice}
+            <span class=>$${book.originalPrice.toFixed(2)}</span> 
         </div>
-    </div>`
+    </div>`;
+    })
+    .join("");
+    booksWrapper.innerHTML = booksHtml;
 }
+
+function filterBooks(event) {
+    renderBooks(event.target.value);
+}
+    
 setTimeout(() => {
 renderBooks();
 });
