@@ -130,7 +130,7 @@ function getBooks() {
           url: "assets/book-6.jpeg",
           originalPrice: 35,
           salePrice: null,
-          rating: 2,
+          rating: 4,
         },
         {
           id: 10,
