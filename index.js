@@ -1,6 +1,6 @@
 async function renderBooks(filter) {
     const booksWrapper = document.querySelector('.books')
-    const books = await getBooks();
+    const books = getBooks();
       
       if (filter === 'LOW_TO_HIGH') {
         books.sort((a,b)=> a.originalPrice - b.originalPrice);
@@ -12,18 +12,18 @@ async function renderBooks(filter) {
           books.sort((a,b)=> b.rating - a.rating);
         }
 
-        let ratingHTML = '';
+        let ratingHTML = "";
         let rating = 3.5;
         for (let i = 0; i <Math.floor(rating); ++i) {
-          ratingHTML += '<i class="fas fa-star"><i>\n'
+          ratingHTML += '<i class="fas fa-star"></i>\n'
         }
         if (!Number.isInteger(rating)) {
-          ratingHTML += '<i class="fas fa-star-half-alt"><i>\n'
+          ratingHTML += '<i class="fas fa-star-half-alt"></i>\n';
         }
-        console.log(ratingHTML)
+        console.log(ratingHTML);
     
-        const booksHtml = books
-    .map(book=> {
+  const booksHtml = books
+    .map((book)=> {
        return   `<div class="book">
         <figure class="book_img--wrapper">
             <img class="book_img" src="${book.url}" alt="">
@@ -31,8 +31,12 @@ async function renderBooks(filter) {
         <div class="book_title">
             ${book.title}
         </div>
-        <div class="book_ratings">
-            ${ratingHTML}
+       <div class="book_ratings">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
         </div>
         <div class="book_price">
             <span class=>$${book.originalPrice.toFixed(2)}</span> 

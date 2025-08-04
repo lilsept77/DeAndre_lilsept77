@@ -356,6 +356,7 @@ margin: 0 auto;
 .book_title {
     font-size: 20px;
     margin-bottom: 8px;
+    margin: auto;
 }
 
 .book_title:hover {
@@ -366,6 +367,11 @@ margin: 0 auto;
 .book_ratings {
     margin-bottom: 1px;
     color: #fabf2a;
+    margin: auto;
+}
+
+.book_price {
+    margin: auto;
 }
 
 .book_price--normal {
