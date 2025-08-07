@@ -380,6 +380,23 @@ margin: 0 auto;
     color: #bfbfbf;
 }
 
+.books_loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    font-size: 60px;
+    color:#7342d6
+}
+
+.books_loading--spinner {
+    display: none;
+}
+
+.books_loading .books_loading--spinner {
+    display: block;
+}
+
 /*EXPLORE*/
 
 #explore {
@@ -425,6 +442,19 @@ footer {
 
 .footer_link {
     padding: 0 8px;
+}
+
+.fa-spinner {
+    animation: rotate 600ms infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+ }
+    100% {
+        transform: rotate(360deg);
+ }
 }
 
 /* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
